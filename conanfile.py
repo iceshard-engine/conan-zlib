@@ -57,7 +57,7 @@ class ZlibConan(ConanFile):
 
     def ice_build(self):
         self._patch_sources()
-        self.ice_run_cmake("zlib" if self.options.shared else "zlibstatic")
+        self.ice_run_cmake()
 
     def _rename_libraries(self):
         if self.settings.os == "Windows":
