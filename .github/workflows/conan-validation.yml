@@ -21,5 +21,5 @@ jobs:
       host: ubuntu-latest
       conan_package: 'zlib/1.2.11@iceshard/stable'
       conan_config_url: 'https://github.com/iceshard-engine/conan-config.git'
-      conan_options: '-s"build_type=Debug"'
+      conan_options: '-s"build_type=Debug" --build=openssl --build=zlib'
       conan_profile: 'gcc-11.0-linux-x86_64'
