@@ -19,7 +19,7 @@ class ZlibConan(ConanFile):
     source_dir = "{name}-{version}"
 
     # Iceshard conan tools
-    python_requires = "conan-iceshard-tools/0.8.0@iceshard/stable"
+    python_requires = "conan-iceshard-tools/0.8.1@iceshard/stable"
     python_requires_extend = "conan-iceshard-tools.IceTools"
 
     def init(self):
@@ -57,7 +57,7 @@ class ZlibConan(ConanFile):
 
     def ice_build(self):
         self._patch_sources()
-        self.ice_run_cmake()
+        self.ice_run_cmake(target=("zlib" if self.options.shared else "zlibstatic"))
 
     def _rename_libraries(self):
         if self.settings.os == "Windows":
